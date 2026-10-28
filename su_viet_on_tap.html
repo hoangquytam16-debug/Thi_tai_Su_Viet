@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sử Việt | Học tập và ôn luyện</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#10294b;--blue:#194c78;--gold:#d9ad5b;--cream:#f7f4ec;--ink:#233247;--muted:#68778b;--white:#fff;--line:#e4e8ed;--green:#287454;--red:#b54444}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:"Be Vietnam Pro",Arial,sans-serif;line-height:1.7}
+header{background:linear-gradient(120deg,#0b203d,#194c78);color:white;position:relative;overflow:hidden}
+header:before,header:after{content:"";position:absolute;border:1px solid #ffffff20;border-radius:50%;width:390px;height:390px;right:-100px;top:-190px}header:after{width:250px;height:250px;right:90px;top:-120px}
+.topbar{max-width:1120px;margin:auto;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;position:relative;z-index:1}
+.brand{font-weight:800;letter-spacing:2px;font-size:1.05rem}.brand span{color:var(--gold)}
+nav{display:flex;gap:10px;flex-wrap:wrap}nav a{color:#fff;text-decoration:none;padding:9px 14px;border:1px solid #ffffff45;border-radius:999px;font-size:.88rem}nav a:hover,nav a.active{background:var(--gold);border-color:var(--gold);color:#172b45}
+.hero{max-width:1120px;margin:auto;padding:48px 24px 76px;position:relative;z-index:1}.eyebrow{text-transform:uppercase;letter-spacing:3px;color:#f0cf8b;font-weight:700;font-size:.78rem}
+h1{font:800 clamp(2.5rem,6vw,4.8rem)/1.05 "Playfair Display",Georgia,serif;margin:14px 0 20px;max-width:760px}.hero p{max-width:670px;color:#e1eaf4;font-size:1.05rem;margin:0 0 28px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{border:0;border-radius:9px;padding:13px 19px;font:700 .95rem "Be Vietnam Pro",sans-serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn-gold{background:var(--gold);color:#172b45}.btn-outline{border:1px solid #ffffff80;color:white;background:transparent}.btn:hover{transform:translateY(-1px);filter:brightness(1.04)}
+main{max-width:1120px;margin:-30px auto 0;padding:0 24px 70px;position:relative;z-index:2}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:38px}.stat{background:white;border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:0 8px 22px #1d35550a}.stat strong{display:block;color:var(--blue);font-size:1.35rem}.stat span{color:var(--muted);font-size:.85rem}
+.section{scroll-margin-top:22px;margin:42px 0}.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:22px}.kicker{color:#9b732d;text-transform:uppercase;letter-spacing:2px;font-size:.76rem;font-weight:800}.section h2{font:700 clamp(1.8rem,4vw,2.7rem)/1.2 "Playfair Display",Georgia,serif;color:var(--navy);margin:5px 0 0}.section-head p{max-width:460px;color:var(--muted);margin:0;font-size:.92rem}
+.topic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.topic{background:white;border:1px solid var(--line);border-radius:15px;padding:22px 23px;box-shadow:0 6px 18px #132b4807}.topic.full{grid-column:1/-1}.topic-top{display:flex;gap:14px;align-items:flex-start}.num{flex:0 0 40px;height:40px;display:grid;place-items:center;background:#edf3f8;color:var(--blue);border-radius:11px;font-weight:800}.topic h3{font-size:1.05rem;line-height:1.45;color:var(--navy);margin:4px 0 12px}.topic p{margin:8px 0;color:#4c5a6d;font-size:.94rem}.topic ul{padding-left:20px;margin:8px 0;color:#4c5a6d;font-size:.94rem}.topic li{margin:7px 0}.tag{display:inline-block;background:#fbf3df;color:#8b6526;border-radius:5px;padding:3px 8px;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:9px}
+.comparison{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:13px;border:1px solid var(--line);background:white}.comparison th,.comparison td{text-align:left;padding:15px 17px;border-bottom:1px solid var(--line);vertical-align:top;font-size:.92rem}.comparison th{background:var(--navy);color:white;font-weight:700}.comparison tr:last-child td{border-bottom:0}.comparison td:first-child{font-weight:700;color:var(--navy);width:23%}
+.quiz-wrap{background:white;border:1px solid var(--line);border-radius:18px;padding:clamp(20px,4vw,34px);box-shadow:0 10px 30px #132b4808}.quiz-toolbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:17px}.progress-shell{height:7px;background:#e9edf1;border-radius:10px;overflow:hidden;flex:1}.progress{height:100%;width:0;background:var(--gold);transition:width .25s}.counter{white-space:nowrap;font-size:.85rem;color:var(--muted);font-weight:700}
+.question{font-size:1.14rem;font-weight:700;color:var(--navy);margin:14px 0 18px}.answers{display:grid;gap:10px}.answer{display:flex;align-items:flex-start;gap:12px;padding:14px 15px;border:1px solid var(--line);border-radius:11px;cursor:pointer;transition:.15s;background:#fff}.answer:hover{border-color:#8ba7c2;background:#f8fbfd}.answer input{margin-top:6px;accent-color:var(--blue);flex:0 0 auto}.answer span{font-size:.94rem}.answer.correct{border-color:#7bb49b;background:#eff8f2}.answer.wrong{border-color:#d99595;background:#fff2f2}.feedback{margin-top:14px;padding:13px 15px;border-radius:9px;font-size:.92rem;display:none}.feedback.show{display:block}.feedback.good{background:#eff8f2;color:#246345}.feedback.bad{background:#fff2f2;color:#963737}.quiz-controls{display:flex;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap}.btn-blue{background:var(--blue);color:white}.btn-light{background:#edf1f5;color:var(--navy)}button:disabled{opacity:.45;cursor:not-allowed;transform:none}.result{display:none;text-align:center;padding:25px 10px}.result h3{font:700 2rem "Playfair Display",Georgia,serif;color:var(--navy);margin:8px}.score{font-size:3.5rem;line-height:1.2;font-weight:800;color:#a87c2c;margin:14px}.result p{color:var(--muted)}.review-list{text-align:left;max-width:760px;margin:25px auto 0}.review-item{border-top:1px solid var(--line);padding:13px 0;font-size:.9rem}.review-item strong{color:var(--navy)}footer{background:#0b203d;color:#c7d3df;text-align:center;padding:26px 20px;font-size:.85rem}footer strong{color:#f0cf8b}
+@media(max-width:720px){.topbar{align-items:flex-start;flex-direction:column}.hero{padding-top:30px}.stats{grid-template-columns:1fr}.topic-grid{grid-template-columns:1fr}.topic.full{grid-column:auto}.section-head{display:block}.section-head p{margin-top:10px}.comparison{display:block;overflow-x:auto}.comparison td:first-child{min-width:150px}.quiz-toolbar{align-items:flex-start;flex-direction:column}.progress-shell{width:100%;flex:auto}}
+@media print{header nav,.hero-actions,.quiz-controls{display:none}.hero{padding:25px}.section{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header>
+  <div class="topbar">
+    <div class="brand">SỬ <span>VIỆT</span></div>
+    <nav aria-label="Điều hướng chính">
+      <a href="#ly-thuyet" class="active">01 · Nội dung</a>
+      <a href="#on-tap">02 · Ôn tập</a>
+    </nav>
+  </div>
+  <div class="hero">
+    <div class="eyebrow">Góc học tập · Lý luận chính trị</div>
+    <h1>Hiểu lý luận.<br>Vững trách nhiệm.</h1>
+    <p>Hệ thống hóa kiến thức về chủ nghĩa xã hội và nền dân chủ xã hội chủ nghĩa; củng cố nhận thức về trách nhiệm của sinh viên trong công cuộc xây dựng đất nước Việt Nam.</p>
+    <div class="hero-actions">
+      <a class="btn btn-gold" href="#ly-thuyet">Bắt đầu học <span>↓</span></a>
+      <a class="btn btn-outline" href="#on-tap">Làm bài ôn tập · 15 câu</a>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="stats">
+    <div class="stat"><strong>02 phần</strong><span>Lý thuyết và ôn tập</span></div>
+    <div class="stat"><strong>06 đặc trưng</strong><span>Bản chất của chủ nghĩa xã hội</span></div>
+    <div class="stat"><strong>15 câu hỏi</strong><span>Trắc nghiệm có chấm điểm</span></div>
+  </div>
+
+  <section id="ly-thuyet" class="section">
+    <div class="section-head">
+      <div><div class="kicker">Phần một</div><h2>Nội dung lý thuyết</h2></div>
+      <p>Nội dung được trình bày theo hai chủ đề trong tài liệu học tập đã cung cấp.</p>
+    </div>
+    <div class="kicker" style="margin:0 0 13px">Chủ đề 1</div>
+    <h3 style="font:700 1.35rem 'Playfair Display',Georgia,serif;color:var(--navy);margin:0 0 18px">6 đặc trưng bản chất của chủ nghĩa xã hội theo quan điểm chủ nghĩa Mác – Lênin</h3>
+    <div class="topic-grid">
+      <article class="topic">
+        <div class="topic-top"><div class="num">01</div><div><span class="tag">Đặc trưng thứ nhất</span><h3>Giải phóng con người, tạo điều kiện phát triển toàn diện</h3></div></div>
+        <p>Chủ nghĩa xã hội hướng tới giải phóng giai cấp, giải phóng dân tộc, giải phóng xã hội và giải phóng con người. Đây là điểm khác biệt về chất, thể hiện bản chất nhân văn, nhân đạo của hình thái kinh tế – xã hội cộng sản chủ nghĩa so với các hình thái ra đời trước.</p>
+      </article>
+      <article class="topic">
+        <div class="topic-top"><div class="num">02</div><div><span class="tag">Đặc trưng thứ hai</span><h3>Xã hội do nhân dân lao động làm chủ</h3></div></div>
+        <p>Nhân dân, nòng cốt là nhân dân lao động, là chủ thể của xã hội và thực hiện quyền làm chủ ngày càng rộng rãi, đầy đủ trong quá trình cải tạo xã hội cũ, xây dựng xã hội mới. Nhà nước xã hội chủ nghĩa có hệ thống pháp luật và tổ chức ngày càng hoàn thiện để quản lý xã hội hiệu quả.</p>
+      </article>
+      <article class="topic">
+        <div class="topic-top"><div class="num">03</div><div><span class="tag">Đặc trưng thứ ba</span><h3>Nền kinh tế phát triển cao</h3></div></div>
+        <p>Nền kinh tế dựa trên lực lượng sản xuất hiện đại và chế độ công hữu về những tư liệu sản xuất chủ yếu. Quan hệ sản xuất tiến bộ, quản lý hiệu quả, năng suất lao động cao và phân phối chủ yếu theo lao động là những nội dung được nhấn mạnh trong tài liệu.</p>
+        <p>Muốn nâng cao năng suất lao động cần tổ chức lao động ở trình độ cao hơn, có tổ chức chặt chẽ, kỷ luật nghiêm và quan hệ sản xuất thích ứng với trình độ phát triển của lực lượng sản xuất.</p>
+      </article>
+      <article class="topic">
+        <div class="topic-top"><div class="num">04</div><div><span class="tag">Đặc trưng thứ tư</span><h3>Nhà nước kiểu mới mang bản chất giai cấp công nhân</h3></div></div>
+        <p>Nhà nước đại biểu cho lợi ích, quyền lực và ý chí của nhân dân lao động. Theo tài liệu, nhà nước kiểu mới thực hiện dân chủ cho đại đa số nhân dân và trấn áp các lực lượng bóc lột, áp bức nhân dân trong thời kỳ quá độ từ chủ nghĩa tư bản lên chủ nghĩa cộng sản.</p>
+      </article>
+      <article class="topic">
+        <div class="topic-top"><div class="num">05</div><div><span class="tag">Đặc trưng thứ năm</span><h3>Nền văn hóa phát triển cao</h3></div></div>
+        <p>Chủ nghĩa xã hội kế thừa và phát huy các giá trị văn hóa dân tộc, tinh hoa văn hóa nhân loại. Văn hóa là nền tảng tinh thần, mục tiêu và động lực phát triển xã hội; góp phần hun đúc tâm hồn, khí phách, bản lĩnh con người, hướng tới các giá trị chân – thiện – mỹ.</p>
+      </article>
+      <article class="topic">
+        <div class="topic-top"><div class="num">06</div><div><span class="tag">Đặc trưng thứ sáu</span><h3>Bình đẳng, đoàn kết và hợp tác quốc tế</h3></div></div>
+        <p>Chủ nghĩa xã hội hướng tới bảo đảm bình đẳng, đoàn kết giữa các dân tộc, duy trì quan hệ hữu nghị và hợp tác với nhân dân các nước. Qua đó, góp phần vào cuộc đấu tranh chung vì hòa bình, độc lập dân tộc, dân chủ và tiến bộ xã hội.</p>
+      </article>
+    </div>
+
+    <div class="kicker" style="margin:35px 0 13px">Chủ đề 2</div>
+    <h3 style="font:700 1.35rem 'Playfair Display',Georgia,serif;color:var(--navy);margin:0 0 18px">Tại sao nói nền dân chủ xã hội chủ nghĩa cao hơn về chất so với nền dân chủ tư sản?</h3>
+    <table class="comparison">
+      <thead><tr><th>Tiêu chí</th><th>Nền dân chủ tư sản (theo tài liệu)</th><th>Nền dân chủ xã hội chủ nghĩa (theo tài liệu)</th></tr></thead>
+      <tbody>
+        <tr><td>1. Bản chất giai cấp</td><td>Mang bản chất giai cấp tư sản; được mô tả là phục vụ lợi ích của thiểu số, thông qua các tổ chức chính trị và nhà nước tư sản.</td><td>Mang bản chất giai cấp công nhân; là nền dân chủ cho đại đa số nhân dân lao động, đặt dưới sự lãnh đạo của Đảng Cộng sản và được quản lý bằng nhà nước xã hội chủ nghĩa.</td></tr>
+        <tr><td>2. Cơ sở kinh tế</td><td>Dựa trên chế độ tư hữu tư bản chủ nghĩa về tư liệu sản xuất; khác biệt về sở hữu và phân phối có thể dẫn đến bất bình đẳng về điều kiện kinh tế và cơ hội thực hiện quyền dân chủ.</td><td>Dựa trên chế độ công hữu về những tư liệu sản xuất chủ yếu; hướng tới nền kinh tế phát triển cao, lực lượng sản xuất hiện đại và quan hệ sản xuất tiến bộ.</td></tr>
+        <tr><td>3. Quyền làm chủ</td><td>Người dân có những quyền dân chủ nhất định, nhưng việc thực hiện chịu sự chi phối của quan hệ kinh tế và lợi ích giai cấp trong xã hội tư bản.</td><td>Xác định nhân dân lao động là chủ thể, thực hiện quyền làm chủ trên các lĩnh vực chính trị, kinh tế, văn hóa và xã hội; xã hội được tổ chức, quản lý bằng pháp luật.</td></tr>
+        <tr><td>4. Mục tiêu</td><td>Tài liệu nêu mục tiêu tối đa hóa giá trị thặng dư, tức lợi nhuận của nhà tư bản thông qua lao động làm thuê.</td><td>Hướng tới giải phóng giai cấp, dân tộc, xã hội và con người; xây dựng xã hội tạo điều kiện phát triển toàn diện về vật chất lẫn tinh thần.</td></tr>
+        <tr><td>5. Công bằng xã hội và phát triển con người</td><td>Sự phân hóa giàu nghèo có thể tạo khác biệt trong tiếp cận giáo dục, chăm sóc sức khỏe và cơ hội phát triển.</td><td>Hướng tới kết hợp quyền làm chủ của nhân dân với phát triển kinh tế, văn hóa, giáo dục và bảo đảm an sinh xã hội, tạo điều kiện phát triển tri thức, đạo đức và nhân cách.</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.86rem;color:var(--muted);margin-top:12px">Lưu ý: Phần lý thuyết được biên soạn, sắp xếp lại cho dễ đọc từ tài liệu người học cung cấp; cách diễn đạt so sánh được giữ theo nội dung tài liệu đó.</p>
+  </section>
+
+  <section id="on-tap" class="section">
+    <div class="section-head">
+      <div><div class="kicker">Phần hai</div><h2>Ôn tập trắc nghiệm</h2></div>
+      <p>15 câu hỏi về trách nhiệm của sinh viên trong việc góp phần xây dựng chủ nghĩa xã hội ở Việt Nam. Chọn một đáp án phù hợp nhất cho mỗi câu.</p>
+    </div>
+    <div class="quiz-wrap">
+      <div id="quiz-area">
+        <div class="quiz-toolbar"><div class="progress-shell"><div id="progress" class="progress"></div></div><div class="counter" id="counter">Câu 1 / 15</div></div>
+        <div id="question" class="question"></div>
+        <div id="answers" class="answers"></div>
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+        <div class="quiz-controls"><button id="restart" class="btn btn-light" type="button">Làm lại từ đầu</button><button id="next" class="btn btn-blue" type="button" disabled>Câu tiếp theo →</button></div>
+      </div>
+      <div id="result" class="result">
+        <div class="kicker">Hoàn thành bài ôn tập</div><h3>Kết quả của bạn</h3><div id="score" class="score">0/15</div><p id="result-text"></p>
+        <button id="try-again" class="btn btn-blue" type="button">Làm lại bài trắc nghiệm</button>
+        <div id="review" class="review-list"></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><strong>SỬ VIỆT</strong> · Học tập, suy ngẫm và hành động có trách nhiệm<br>Website học tập tham khảo từ tài liệu lý thuyết do người dùng cung cấp.</footer>
+<script>
+const questions = [
+{q:"Trách nhiệm nền tảng của sinh viên để góp phần xây dựng đất nước là gì?",a:["Chỉ quan tâm đến điểm số của bản thân","Học tập nghiêm túc, rèn luyện đạo đức và nâng cao năng lực","Phó mặc mọi vấn đề xã hội cho người khác","Chỉ tham gia hoạt động khi được khen thưởng"],c:1,e:"Học tập, rèn luyện đạo đức và phát triển năng lực giúp sinh viên chuẩn bị tri thức, phẩm chất để đóng góp cho xã hội."},
+{q:"Hành động nào thể hiện tinh thần thượng tôn pháp luật của sinh viên?",a:["Chia sẻ thông tin chưa kiểm chứng nếu thấy hấp dẫn","Làm theo số đông dù biết hành vi sai","Tuân thủ pháp luật, nội quy trường học và quy định nơi công cộng","Tìm cách né tránh trách nhiệm khi vi phạm"],c:2,e:"Tôn trọng và chấp hành pháp luật là nền tảng để xây dựng xã hội có kỷ cương."},
+{q:"Khi gặp một thông tin gây tranh cãi trên mạng xã hội, sinh viên nên làm gì?",a:["Kiểm tra nguồn tin, đối chiếu thông tin trước khi chia sẻ","Chia sẻ ngay để mọi người tự đánh giá","Thêm chi tiết gây sốc để thu hút tương tác","Công kích người có ý kiến khác"],c:0,e:"Ứng xử có trách nhiệm trên môi trường số đòi hỏi kiểm chứng thông tin và tôn trọng người khác."},
+{q:"Việc tham gia hoạt động tình nguyện có ý nghĩa gì đối với sinh viên và cộng đồng?",a:["Chỉ giúp làm đẹp hồ sơ cá nhân","Thay thế hoàn toàn việc học tập","Tạo cơ hội nghỉ học","Góp sức giải quyết nhu cầu cộng đồng, rèn tinh thần sẻ chia và trách nhiệm"],c:3,e:"Tình nguyện có ích khi xuất phát từ nhu cầu thực tế, tinh thần tự nguyện và trách nhiệm với cộng đồng."},
+{q:"Để góp phần phát triển kinh tế – xã hội, sinh viên nên ưu tiên điều gì?",a:["Ngại tiếp cận kiến thức mới","Chủ động học tập, nghiên cứu, sáng tạo và nâng cao kỹ năng nghề nghiệp","Chỉ học thuộc mà không vận dụng","Cho rằng đổi mới không liên quan đến sinh viên"],c:1,e:"Tri thức, kỹ năng, nghiên cứu và sáng tạo là những cách thiết thực để đóng góp vào sự phát triển."},
+{q:"Trong môi trường học tập, biểu hiện nào phù hợp với tinh thần công bằng và trung thực?",a:["Sao chép bài của bạn","Nhờ người khác làm bài kiểm tra","Không gian lận, tôn trọng công sức và kết quả của mọi người","Che giấu hành vi gian lận của nhóm"],c:2,e:"Trung thực trong học tập xây dựng môi trường đáng tin cậy và hình thành phẩm chất cá nhân."},
+{q:"Sinh viên có thể góp phần xây dựng khối đoàn kết bằng cách nào?",a:["Tôn trọng khác biệt, hợp tác và hỗ trợ bạn bè","Loại trừ người có quan điểm khác mình","Lan truyền định kiến về vùng miền","Chỉ làm việc với người cùng sở thích"],c:0,e:"Đoàn kết được vun đắp qua sự tôn trọng, hợp tác và tinh thần cùng chịu trách nhiệm."},
+{q:"Trước một vấn đề của cộng đồng hoặc nhà trường, cách ứng xử nào có trách nhiệm?",a:["Phê phán cá nhân mà không tìm hiểu sự việc","Im lặng trong mọi trường hợp","Đăng thông tin riêng tư của người liên quan","Tìm hiểu vấn đề, góp ý có căn cứ và đề xuất giải pháp phù hợp"],c:3,e:"Góp ý xây dựng cần có căn cứ, thái độ tôn trọng và hướng đến giải pháp."},
+{q:"Bảo vệ môi trường trong đời sống sinh viên có thể bắt đầu từ việc nào?",a:["Dùng đồ một lần trong mọi tình huống","Tiết kiệm điện nước, giảm rác thải và phân loại rác khi có điều kiện","Đổ rác ở nơi khuất","Cho rằng hành động cá nhân không có ý nghĩa"],c:1,e:"Những thói quen nhỏ, được duy trì và lan tỏa, góp phần bảo vệ môi trường sống chung."},
+{q:"Khi tham gia hoạt động của Đoàn, Hội hoặc câu lạc bộ, sinh viên nên làm gì?",a:["Chỉ nhận việc dễ và bỏ dở việc khó","Đặt lợi ích cá nhân lên trên tập thể trong mọi trường hợp","Chủ động, đúng giờ, phối hợp và hoàn thành nhiệm vụ được giao","Để người khác chịu trách nhiệm thay"],c:2,e:"Tinh thần trách nhiệm thể hiện ở sự chủ động, phối hợp và hoàn thành cam kết với tập thể."},
+{q:"Thái độ nào phù hợp khi tiếp nhận các giá trị văn hóa dân tộc và văn hóa nhân loại?",a:["Trân trọng di sản dân tộc, đồng thời học hỏi có chọn lọc tinh hoa nhân loại","Bác bỏ mọi giá trị văn hóa khác biệt","Chỉ quan tâm văn hóa nước ngoài","Coi nhẹ lịch sử và truyền thống địa phương"],c:0,e:"Kế thừa giá trị văn hóa dân tộc đi cùng thái độ cởi mở, học hỏi có chọn lọc tinh hoa nhân loại."},
+{q:"Vì sao sinh viên cần rèn luyện kỹ năng phản biện và tư duy độc lập?",a:["Để luôn phủ nhận ý kiến của người khác","Để tranh luận bằng mọi giá","Để tránh phải làm việc nhóm","Để phân tích vấn đề có căn cứ, nhận diện thông tin sai lệch và đề xuất giải pháp"],c:3,e:"Tư duy phản biện giúp đánh giá thông tin và đưa ra quyết định có trách nhiệm."},
+{q:"Khi thấy bạn có hoàn cảnh khó khăn, hành động nào thể hiện tinh thần nhân ái?",a:["Đưa hoàn cảnh của bạn lên mạng khi chưa xin phép","Hỗ trợ phù hợp, tôn trọng lòng tự trọng và quyền riêng tư của bạn","Dùng hoàn cảnh đó để đùa cợt","Mặc định rằng người khác sẽ giúp"],c:1,e:"Sự hỗ trợ cần thiết thực, tôn trọng phẩm giá và bảo vệ quyền riêng tư của người được giúp đỡ."},
+{q:"Đóng góp nào thể hiện trách nhiệm của sinh viên đối với sự phát triển khoa học – công nghệ?",a:["Sao chép sản phẩm của người khác","Phớt lờ các nguyên tắc an toàn số","Tìm tòi, nghiên cứu, ứng dụng công nghệ có đạo đức và tôn trọng quyền sở hữu trí tuệ","Dùng công nghệ để phát tán thông tin sai"],c:2,e:"Nghiên cứu và ứng dụng công nghệ cần đi kèm đạo đức, an toàn và tôn trọng quyền sở hữu trí tuệ."},
+{q:"Cách hiểu nào phù hợp nhất về trách nhiệm công dân của sinh viên trong xây dựng xã hội?",a:["Bắt đầu từ hành động cụ thể: học tập, lao động, sống có trách nhiệm và tham gia đóng góp cộng đồng","Chỉ cần quan tâm khi đã đi làm","Trách nhiệm xã hội chỉ thuộc về cơ quan nhà nước","Mỗi cá nhân không thể tạo ra bất kỳ thay đổi nào"],c:0,e:"Trách nhiệm công dân được thể hiện qua những việc làm cụ thể, phù hợp khả năng và hướng tới lợi ích chung."}
+];
+let current=0, selected=null, score=0, responses=Array(questions.length).fill(null);
+const $=id=>document.getElementById(id);
+function render(){
+ const item=questions[current]; selected=null;
+ $("counter").textContent=`Câu ${current+1} / ${questions.length}`;
+ $("progress").style.width=`${current/questions.length*100}%`;
+ $("question").textContent=item.q;
+ $("answers").innerHTML="";
+ $("feedback").className="feedback"; $("feedback").textContent="";
+ $("next").disabled=true; $("next").textContent=current===questions.length-1?"Xem kết quả →":"Câu tiếp theo →";
+ item.a.forEach((answer,i)=>{
+  const label=document.createElement("label");label.className="answer";
+  const radio=document.createElement("input");radio.type="radio";radio.name="answer";radio.value=i;
+  const span=document.createElement("span");span.textContent=String.fromCharCode(65+i)+". "+answer;
+  label.append(radio,span);label.addEventListener("click",()=>choose(i));$("answers").append(label);
+ });
+}
+function choose(i){
+ if(selected!==null)return;selected=i;responses[current]=i;
+ const item=questions[current];const labels=[...$("answers").children];
+ labels.forEach((label,j)=>{label.querySelector("input").disabled=true;if(j===item.c)label.classList.add("correct");if(j===i&&i!==item.c)label.classList.add("wrong")});
+ const good=i===item.c;if(good)score++;
+ $("feedback").textContent=(good?"Chính xác! ":"Chưa chính xác. ")+item.e;
+ $("feedback").className="feedback show "+(good?"good":"bad");
+ $("next").disabled=false;
+}
+function finish(){
+ $("quiz-area").style.display="none";$("result").style.display="block";
+ $("score").textContent=`${score}/${questions.length}`;
+ const pct=Math.round(score/questions.length*100);
+ $("result-text").textContent=pct>=80?"Rất tốt! Bạn đã nắm khá vững các nội dung ôn tập.":pct>=60?"Khá tốt! Hãy xem lại những câu chưa đúng để củng cố kiến thức.":"Bạn nên đọc lại phần lý thuyết và thử sức thêm một lần nữa.";
+ $("progress").style.width="100%";
+ $("review").innerHTML="<h4>Đáp án và giải thích</h4>"+questions.map((q,i)=>`<div class="review-item"><strong>${i+1}. ${q.q}</strong><br>Đáp án đúng: <b>${String.fromCharCode(65+q.c)}. ${q.a[q.c]}</b><br><span style="color:#68778b">${q.e}</span>${responses[i]===q.c?"":`<br><span style="color:#b54444">Bạn chọn: ${responses[i]===null?"Chưa trả lời":String.fromCharCode(65+responses[i])+". "+q.a[responses[i]]}</span>`}</div>`).join("");
+}
+function restart(){current=0;score=0;responses=Array(questions.length).fill(null);$("quiz-area").style.display="block";$("result").style.display="none";render();window.scrollTo({top:$("on-tap").offsetTop,behavior:"smooth"});}
+$("next").addEventListener("click",()=>{if(current<questions.length-1){current++;render()}else finish()});
+$("restart").addEventListener("click",restart);$("try-again").addEventListener("click",restart);
+render();
+</script>
+</body>
+</html>
